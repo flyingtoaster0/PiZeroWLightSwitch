@@ -16,7 +16,7 @@ class PCRenderer:
         font = pygame.font.SysFont('Arial', 24, True, False)
         self.screen.fill(self.BLACK)
 
-        text_y_position = 0;
+        text_y_position = 0
         for text in text_list:
 
             # "True" means anti-aliased renderable_text.
