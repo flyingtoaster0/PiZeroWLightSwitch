@@ -35,6 +35,9 @@ class NestedMenu(Menu):
         selected_menu = menu_config[current_selection]
         return selected_menu.get_title()
 
+    def get_renderable_text(self, menu_config):
+        return [self.title, self.get_line_1(menu_config), self.get_line_2(menu_config)]
+
     def confirm(self, menu_stack, menu_config):
         selected_id = self.child_ids[self.selection]
         next_menu = menu_config[selected_id]
