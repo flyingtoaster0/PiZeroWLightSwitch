@@ -5,11 +5,12 @@ class MainLoop:
 
     # TODO: Pass in a repo that can access the data.
     # TODO: Pass in a class that understands how to perform actions.
-    def __init__(self, app_input, renderer, menu_manager):
+    def __init__(self, app_input, renderer, menu_manager, breadcrumb_printer):
         self.renderer = renderer
         self.app_input = app_input
 
         self.menu_manager = menu_manager
+        self.breadcrumb_printer = breadcrumb_printer
         pass
 
     def run(self):
@@ -33,7 +34,9 @@ class MainLoop:
 ## TODO: also add GPIO but through another class so that it's not imported directly here.
 ## todo: use whichever renderer is needed.
 
-            lines_to_render = self.menu_manager.get_renderable_text()
+            breadcrumb_str = self.breadcrumb_printer.get_breadcrumb_str(self.menu_manager.menu_stack)
+            lines_to_render = [breadcrumb_str] + self.menu_manager.get_renderable_text()
+
             self.renderer.render(lines_to_render)
 
             clock.tick(60)

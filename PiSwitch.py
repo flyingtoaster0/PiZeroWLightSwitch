@@ -1,3 +1,4 @@
+from display.BreadcrumbPrinter import BreadcrumbPrinter
 from display.DisplayRenderer import DisplayRenderer
 from display.MainLoop import MainLoop
 from display.PCRenderer import PCRenderer
@@ -41,8 +42,8 @@ menu_stack = [root_menu]
 
 ## todo menu config in the manager constructor
 menu_manager = MenuManager(menu_stack, menu_config)
-
-display = MainLoop(app_input, renderer, menu_manager)
+breadcrumb_printer = BreadcrumbPrinter()
+display = MainLoop(app_input, renderer, menu_manager, breadcrumb_printer)
 display.run()
 
 
