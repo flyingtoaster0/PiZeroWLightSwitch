@@ -12,4 +12,5 @@ class TestLeaf(Menu):
     def handle_input(self, input_button, menu_stack, menu_config):
         if input_button == InputButton.enter:
             print('WOO! We have an app!')
+            self.repository['hue_client'].set_group_state('7', False)
 

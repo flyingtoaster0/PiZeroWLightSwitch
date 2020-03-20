@@ -2,3 +2,4 @@ venv
 venv37
 .idea
 *.pyc
+config.yml

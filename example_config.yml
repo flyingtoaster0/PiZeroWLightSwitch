@@ -1,0 +1,6 @@
+hue:
+  ip: "192.168.x.x"
+  username: "<hue_username>"
+nanoleaf:
+  ip: "192.168.y.y"
+  auth_token: "<nanoleaf_auth_token>"

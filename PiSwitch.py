@@ -8,12 +8,16 @@ from input.PyGameInput import PyGameInput
 from menu.MenuConfig import MenuConfig
 from menu.MenuManager import MenuManager
 from nanoleaf.NanoleafClient import NanoleafClient
+import yaml
 
-hue_username = '<username>'
-nanoleaf_auth_token = '<auth_token>'
+with open("config.yml", 'r') as ymlfile:
+    config = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 
-hue_url = '<hue_ip>'
-nanoleaf_url = '<nanoleaf_ip>'
+hue_username = config['hue']['username']
+nanoleaf_auth_token = config['nanoleaf']['auth_token']
+
+hue_url = 'http://' + config['hue']['ip']
+nanoleaf_url = 'http://' + config['nanoleaf']['ip'] + ':16021'
 
 
 hue_client = HueClient(hue_url, hue_username)
