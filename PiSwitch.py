@@ -36,7 +36,7 @@ app_input = AppInput([PyGameInput()])
 # TODO: Have different driver classes, etc.
 renderer = DisplayRenderer(PCRenderer())
 
-menu_config = MenuConfig().get_config()
+menu_config = MenuConfig().get_config(repository)
 root_menu = menu_config['menu1']
 menu_stack = [root_menu]
 
