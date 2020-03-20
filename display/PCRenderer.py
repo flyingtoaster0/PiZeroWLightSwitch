@@ -13,18 +13,19 @@ class PCRenderer:
         pygame.display.set_caption("Test Window")
 
     def render(self, text_list):
-        font = pygame.font.SysFont('Arial', 24, True, False)
+        font = pygame.font.SysFont('couriernewttf', 24, True, False)
         self.screen.fill(self.BLACK)
 
         text_y_position = 0
-        for text in text_list:
+        for tuple in text_list:
+            for text in tuple:
 
-            # "True" means anti-aliased renderable_text.
-            renderable_text = font.render(text, True, self.WHITE)
+                # "True" means anti-aliased renderable_text.
+                renderable_text = font.render(text, True, self.WHITE)
 
-            # Put the image of the renderable_text on the screen at 250x250
-            self.screen.blit(renderable_text, [0, text_y_position * 32])
+                # Put the image of the renderable_text on the screen at 250x250
+                self.screen.blit(renderable_text, [0, text_y_position * 32])
+
             text_y_position = text_y_position + 1
-
         # Draw
         pygame.display.flip()

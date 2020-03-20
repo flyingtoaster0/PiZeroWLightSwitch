@@ -35,7 +35,7 @@ class MainLoop:
 ## todo: use whichever renderer is needed.
 
             breadcrumb_str = self.breadcrumb_printer.get_breadcrumb_str(self.menu_manager.menu_stack)
-            lines_to_render = [breadcrumb_str] + self.menu_manager.get_renderable_text()
+            lines_to_render = [(breadcrumb_str, None)] + self.menu_manager.get_renderable_text()
 
             self.renderer.render(lines_to_render)
 
