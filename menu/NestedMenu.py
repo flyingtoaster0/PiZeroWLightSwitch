@@ -4,7 +4,7 @@ from menu.Menu import Menu
 
 class NestedMenu(Menu):
 
-    def __init__(self, title, child_ids, repository):
+    def __init__(self, title, child_ids):
         super().__init__(title)
         self.child_ids = child_ids
         self.selection = 0
