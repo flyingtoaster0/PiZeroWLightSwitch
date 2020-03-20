@@ -17,3 +17,6 @@ class Menu:
 
     def handle_input(self, input_button, menu_stack, menu_config):
         pass
+
+    def on_enter(self):
+        pass

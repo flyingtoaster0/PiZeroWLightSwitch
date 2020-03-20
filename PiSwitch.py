@@ -28,8 +28,16 @@ nanoleaf_client = NanoleafClient(nanoleaf_url)
 #hue_client.set_group_state('7', True)
 #nanoleaf_client.set_state(nanoleaf_auth_token, True)
 
+# Section: Get hue groups.
+hue_groups_response = hue_client.get_groups()
+hue_groups = []
+for key, value in hue_groups_response.items():
+    value['id'] = key
+    hue_groups.append(value)
+
 repository = {
     'hue_client': hue_client,
+    'hue_groups': hue_groups,
     'nanoleaf_client': nanoleaf_client
 }
 
