@@ -15,6 +15,7 @@ class CommandLineRenderer:
         render_text = ''
         for tuple in text_list:
             for text in tuple:
-                render_text = render_text + text
+                if text is not None:
+                    render_text = render_text + text
 
         print(render_text, end='\r')
