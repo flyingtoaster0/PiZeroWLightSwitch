@@ -10,6 +10,7 @@ class HueRoomToggle(Menu):
         self.menu_config = menu_config
         self.hue_groups = repository['hue_groups']
         self.hue_client = repository['hue_client']
+        self.nanoleaf_client = repository['nanoleaf_client']
         self.selection_index = 0
         self.selection = None
         self.confirm_index = 0
@@ -33,6 +34,10 @@ class HueRoomToggle(Menu):
             else:
                 on_off = self.confirm_index == 0
                 self.hue_client.set_group_state(self.selection['id'], on_off)
+
+                # Hack because the den is only room with a nanoleaf panel.
+                if self.selection['name'] == 'Den':
+                    self.nanoleaf_client.set_state(on_off)
         elif input_button == InputButton.back:
             if self.selection is None:
                 self.back(menu_stack)
