@@ -19,3 +19,13 @@ class HueClient:
         url = self.set_group_state_url + '/' + group_id + '/action'
         request_body = json.dumps({'on': is_on})
         requests.put(url, request_body)
+
+    def set_group_hue(self, group_id, hue):
+        url = self.set_group_state_url + '/' + group_id + '/action'
+        request_body = json.dumps({'hue': hue})
+        requests.put(url, request_body)
+
+    def set_group_brightness(self, group_id, brightness):
+        url = self.set_group_state_url + '/' + group_id + '/action'
+        request_body = json.dumps({'bri': brightness})
+        requests.put(url, request_body)
