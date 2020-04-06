@@ -3,3 +3,4 @@ venv37
 .idea
 *.pyc
 config.yml
+multi_platform_config.yml

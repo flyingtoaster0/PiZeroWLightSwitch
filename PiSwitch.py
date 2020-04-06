@@ -13,6 +13,9 @@ import yaml
 with open("config.yml", 'r') as ymlfile:
     config = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 
+with open("multi_platform_config.yml", 'r') as ymlfile:
+    multi_platform_config = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+
 hue_username = config['hue']['username']
 nanoleaf_auth_token = config['nanoleaf']['auth_token']
 
@@ -21,7 +24,7 @@ nanoleaf_url = 'http://' + config['nanoleaf']['ip'] + ':16021'
 
 
 hue_client = HueClient(hue_url, hue_username)
-nanoleaf_client = NanoleafClient(nanoleaf_url)
+nanoleaf_client = NanoleafClient(nanoleaf_url, nanoleaf_auth_token)
 
 #hue_client.get_groups()
 
@@ -39,7 +42,8 @@ for key, value in hue_groups_response.items():
 repository = {
     'hue_client': hue_client,
     'hue_groups': hue_groups,
-    'nanoleaf_client': nanoleaf_client
+    'nanoleaf_client': nanoleaf_client,
+    'multi_platform_config': multi_platform_config
 }
 
 
