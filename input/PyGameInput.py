@@ -13,14 +13,19 @@ class PyGameInput:
             pygame.K_RIGHT: InputButton.right,
             pygame.K_RETURN: InputButton.enter,
             pygame.K_BACKSPACE: InputButton.back,
+            pygame.K_ESCAPE: InputButton.quit,
         }
 
-    def get_button(self, event):
-        if event.type != pygame.KEYDOWN:
-            return None
+    def get_button(self):
+        for event in pygame.event.get():  # User did something
+            if event.type == pygame.QUIT:
+                return InputButton.quit
 
-        key_input = event.key
-        if key_input in self.input_map:
-            return self.input_map[key_input]
+            if event.type != pygame.KEYDOWN:
+                return None
+
+            key_input = event.key
+            if key_input in self.input_map:
+                return self.input_map[key_input]
 
         return None

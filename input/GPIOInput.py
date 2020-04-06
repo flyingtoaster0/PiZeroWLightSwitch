@@ -1,4 +1,6 @@
+import RPi.GPIO as GPIO
+
 class GPIOInput:
 
-    def get_button(self, event):
+    def get_button(self):
         return None

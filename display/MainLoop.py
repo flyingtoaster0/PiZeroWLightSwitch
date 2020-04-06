@@ -1,5 +1,7 @@
 import pygame
 
+from input.InputButton import InputButton
+
 
 class MainLoop:
 
@@ -20,16 +22,16 @@ class MainLoop:
         done = False
 
         while not done:
-            for event in pygame.event.get():  # User did something
 
-                button = self.app_input.get_button(event)
+            button = self.app_input.get_button()
 
-                self.menu_manager.handle_input(button)
-                # if button == InputButton.left:
-                #     print("ayy")
+            if button == InputButton.quit:
+                done = True  # Flag that we are done so we exit this loop
 
-                if event.type == pygame.QUIT:  # If user clicked close
-                    done = True  # Flag that we are done so we exit this loop
+            self.menu_manager.handle_input(button)
+            # if button == InputButton.left:
+            #     print("ayy")
+
 
 ## TODO: also add GPIO but through another class so that it's not imported directly here.
 ## todo: use whichever renderer is needed.
