@@ -13,7 +13,8 @@ class PCRenderer:
         pygame.display.set_caption("Test Window")
 
     def render(self, text_list):
-        font = pygame.font.SysFont('couriernewttf', 24, True, False)
+        font_name = self.get_courier(pygame.font.get_fonts())
+        font = pygame.font.SysFont(font_name, 24, True, False)
         self.screen.fill(self.BLACK)
 
         text_y_position = 0
@@ -29,3 +30,8 @@ class PCRenderer:
             text_y_position = text_y_position + 1
         # Draw
         pygame.display.flip()
+
+    def get_courier(self, font_list):
+        for font in font_list:
+            if font.startswith('couriernew'):
+                return font

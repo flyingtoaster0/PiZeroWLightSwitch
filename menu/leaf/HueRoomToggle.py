@@ -55,7 +55,7 @@ class TestLeaf(Menu):
                 return '   ___'
 
     def get_renderable_text(self, menu_config):
-        return [self.get_title(), self.get_line_1(menu_config), self.get_line_2(menu_config)]
+        return [self.get_line_1(menu_config), self.get_line_2(menu_config)]
 
     def select_down(self):
         if self.selection is None:

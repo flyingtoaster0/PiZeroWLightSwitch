@@ -32,8 +32,9 @@ nanoleaf_client = NanoleafClient(nanoleaf_url)
 hue_groups_response = hue_client.get_groups()
 hue_groups = []
 for key, value in hue_groups_response.items():
-    value['id'] = key
-    hue_groups.append(value)
+    if value['type'] == 'Room':
+        value['id'] = key
+        hue_groups.append(value)
 
 repository = {
     'hue_client': hue_client,

@@ -1,5 +1,5 @@
 from menu.NestedMenu import NestedMenu
-from menu.leaf.TestLeaf import TestLeaf
+from menu.leaf.HueRoomToggle import TestLeaf
 
 
 class MenuConfig:
