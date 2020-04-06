@@ -1,5 +1,5 @@
 from menu.NestedMenu import NestedMenu
-from menu.leaf.HueRoomToggle import TestLeaf
+from menu.leaf.HueRoomToggle import HueRoomToggle
 
 
 class MenuConfig:
@@ -15,5 +15,5 @@ class MenuConfig:
             'menu7': NestedMenu('Menu 7', ['menu5', 'menu6', 'menu7']),
             'menu8': NestedMenu('Menu 8', ['menu5', 'menu6', 'menu7']),
             'menu9': NestedMenu('Menu 9', ['menu5', 'menu6', 'menu7']),
-            'menu10': TestLeaf('Test Leaf', ['menu5', 'menu6', 'menu7'], repository)
+            'menu10': HueRoomToggle('Room Toggle', ['menu5', 'menu6', 'menu7'], repository)
         }

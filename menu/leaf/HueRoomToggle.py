@@ -2,7 +2,7 @@ from input.InputButton import InputButton
 from menu.Menu import Menu
 
 
-class TestLeaf(Menu):
+class HueRoomToggle(Menu):
 
     def __init__(self, title, menu_config, repository):
         super().__init__(title)
