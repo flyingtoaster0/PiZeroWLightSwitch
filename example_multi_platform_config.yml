@@ -1,7 +1,9 @@
 daytime:
   name: "Daytime"
   hue_group: "Den"
-  hue_hue: 2808
+  hue_group_id: "7"
   hue_brightness: 80
+  hue_hue: 8258
+  hue_saturation: 52
   nanoleaf_effect: "Natural Light2"
   nanoleaf_brightness: 80
