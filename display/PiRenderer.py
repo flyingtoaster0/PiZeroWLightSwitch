@@ -60,7 +60,6 @@ class PiRenderer:
             for tuple in text_list:
                 for text in tuple:
                     if text is not None:
-                        print(text)
                         self.draw.text((self.x, self.top + text_y_position * 8), text, font=self.font, fill=255)
 
                 text_y_position = text_y_position + 1
