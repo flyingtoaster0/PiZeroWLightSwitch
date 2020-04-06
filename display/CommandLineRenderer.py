@@ -1,4 +1,5 @@
 import pygame
+import os
 
 
 class CommandLineRenderer:
@@ -7,6 +8,7 @@ class CommandLineRenderer:
         pass
 
     def init_renderer(self):
+        os.putenv('DISPLAY', ':0.0')
         pygame.init()
 
     def render(self, text_list):
