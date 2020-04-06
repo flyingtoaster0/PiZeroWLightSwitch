@@ -2,6 +2,7 @@ from display.BreadcrumbPrinter import BreadcrumbPrinter
 from display.DisplayRenderer import DisplayRenderer
 from display.MainLoop import MainLoop
 from display.PCRenderer import PCRenderer
+from display.CommandLineRenderer import CommandLineRenderer
 from hue.HueClient import HueClient
 from input.AppInput import AppInput
 from input.PyGameInput import PyGameInput
