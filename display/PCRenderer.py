@@ -12,6 +12,9 @@ class PCRenderer:
         self.screen = pygame.display.set_mode(self.size)
         pygame.display.set_caption("Test Window")
 
+    def init_renderer(self):
+        pygame.init()
+
     def render(self, text_list):
         font_name = self.get_courier(pygame.font.get_fonts())
         font = pygame.font.SysFont(font_name, 24, True, False)
@@ -20,7 +23,6 @@ class PCRenderer:
         text_y_position = 0
         for tuple in text_list:
             for text in tuple:
-
                 # "True" means anti-aliased renderable_text.
                 renderable_text = font.render(text, True, self.WHITE)
 

@@ -14,7 +14,7 @@ class MainLoop:
         pass
 
     def run(self):
-        pygame.init()
+        self.renderer.init_renderer()
 
         clock = pygame.time.Clock()
         done = False
