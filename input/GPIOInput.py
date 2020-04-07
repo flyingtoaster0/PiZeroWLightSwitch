@@ -16,9 +16,9 @@ class GPIOInput:
         }
 
         self.gpio_button_map = {
-            23: InputButton.up,
+            18: InputButton.up,
             22: InputButton.down,
-            18: InputButton.left,
+            23: InputButton.left,
             27: InputButton.right,
             17: InputButton.enter,
             4: InputButton.back,
