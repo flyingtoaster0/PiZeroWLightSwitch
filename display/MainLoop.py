@@ -22,7 +22,7 @@ class MainLoop:
         done = False
 
         while not done:
-
+# TODO!!: remove breadcrumbs because there's not enough space on the real display.
             button = self.app_input.get_button()
 
             if button == InputButton.quit:
