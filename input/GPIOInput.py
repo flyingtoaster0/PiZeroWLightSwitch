@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+from time import sleep
 
 from input.InputButton import InputButton
 
@@ -32,22 +33,22 @@ class GPIOInput:
     def get_button(self):
 
         for input_pin, button in self.gpio_button_map.items():
-            if self.check_map(input_pin) is True:
+
+            button = self.gpio_button_map[input_pin]
+
+            previous_state = self.button_state_map[button]
+
+            current_button_state = GPIO.input(input_pin) == GPIO.HIGH
+
+            self.button_state_map[button] = current_button_state
+
+            state = self.button_state_map[button]
+
+            if previous_state is False and state is True:
                 print("gpio " + str(input_pin))
                 return button
 
+            sleep(0.05)
+
         return None
-
-    def check_map(self, input_pin):
-        button = self.gpio_button_map[input_pin]
-
-        previous_state = self.button_state_map[button]
-
-        current_button_state = GPIO.input(input_pin) == GPIO.HIGH
-
-        self.button_state_map[button] = current_button_state
-
-        state = self.button_state_map[button]
-
-        return previous_state is False and state is True
 
