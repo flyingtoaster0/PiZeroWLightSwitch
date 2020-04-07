@@ -29,7 +29,7 @@ class GPIOInput:
 
     def get_button(self):
 
-        for input_pin, button in self.gpio_button_map:
+        for input_pin, button in self.gpio_button_map.items():
             if self.check_map(input_pin) is True:
                 return button
 
