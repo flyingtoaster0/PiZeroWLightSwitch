@@ -8,4 +8,4 @@ class InputButton(Enum):
     right = 4
     enter = 5
     back = 6
-    quit = 6
+    quit = 7
