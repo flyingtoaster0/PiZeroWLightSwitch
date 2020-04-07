@@ -19,8 +19,8 @@ class GPIOInput:
         self.gpio_button_map = {
             18: InputButton.up,
             22: InputButton.down,
-            23: InputButton.left,
-            27: InputButton.right,
+            27: InputButton.left,
+            23: InputButton.right,
             17: InputButton.enter,
             4: InputButton.back,
         }
@@ -47,8 +47,6 @@ class GPIOInput:
             if previous_state is False and state is True:
                 print("gpio " + str(input_pin))
                 return button
-
-            sleep(0.05)
 
         return None
 
