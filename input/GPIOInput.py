@@ -16,12 +16,12 @@ class GPIOInput:
         }
 
         self.gpio_button_map = {
-            4: InputButton.up,
-            17: InputButton.down,
+            23: InputButton.up,
+            22: InputButton.down,
             18: InputButton.left,
             27: InputButton.right,
-            22: InputButton.enter,
-            23: InputButton.back,
+            17: InputButton.enter,
+            4: InputButton.back,
         }
 
         GPIO.setmode(GPIO.BCM)
@@ -33,6 +33,7 @@ class GPIOInput:
 
         for input_pin, button in self.gpio_button_map.items():
             if self.check_map(input_pin) is True:
+                print("gpio " + str(input_pin))
                 return button
 
         return None
