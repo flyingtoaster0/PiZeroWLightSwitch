@@ -8,7 +8,7 @@ class PCRenderer:
     def __init__(self):
         self.BLACK = (0, 0, 0)
         self.WHITE = (255, 255, 255)
-        self.size = (1024, 128)
+        self.size = (512, 128)
         self.screen = pygame.display.set_mode(self.size)
         pygame.display.set_caption("Test Window")
 
