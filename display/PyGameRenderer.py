@@ -1,6 +1,6 @@
 import pygame
 
-class PCRenderer:
+class PyGameRenderer:
 
     def __init__(self):
         self.BLACK = (0, 0, 0)

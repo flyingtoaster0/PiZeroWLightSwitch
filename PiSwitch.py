@@ -1,7 +1,7 @@
 from display.BreadcrumbPrinter import BreadcrumbPrinter
 from display.DisplayRenderer import DisplayRenderer
 from display.MainLoop import MainLoop
-from display.PyGameRenderer import PCRenderer
+from display.PyGameRenderer import PyGameRenderer
 from display.CommandLineRenderer import CommandLineRenderer
 from hue.HueClient import HueClient
 from input.AppInput import AppInput
@@ -55,7 +55,7 @@ repository = {
 app_input = AppInput([PyGameInput()])
 
 # TODO: Have different driver classes, etc.
-renderer = DisplayRenderer(PCRenderer())
+renderer = DisplayRenderer(PyGameRenderer())
 
 menu_config = MenuConfig().get_config(repository)
 root_menu = menu_config['menu1']
