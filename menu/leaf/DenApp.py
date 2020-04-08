@@ -44,6 +44,5 @@ class DenApp(Menu):
             menu_stack.pop()
 
     def set_lights(self, room_config):
-        self.hue_client.set_group_properties(room_config['hue_group_id'], room_config['hue_brightness'], room_config['hue_hue'], room_config['hue_saturation'])
-        self.nanoleaf_client.set_effect(room_config['nanoleaf_effect'])
-        self.nanoleaf_client.set_brightness(room_config['nanoleaf_brightness'])
+        self.hue_client.set_group_properties(room_config['hue_properties'])
+        self.nanoleaf_client.set_properties(room_config['nanoleaf_properties'])

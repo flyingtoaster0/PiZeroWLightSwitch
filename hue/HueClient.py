@@ -20,17 +20,24 @@ class HueClient:
         request_body = json.dumps({'on': is_on})
         requests.put(url, request_body)
 
-    def set_group_properties(self, group_id, brightness=None, hue=None, saturation=None):
+    def set_group_properties(self, hue_properties):
+        group_id = hue_properties['group_id']
         url = self.set_group_state_url + '/' + group_id + '/action'
 
-        properties = {'on': True}
+        on_off = bool(hue_properties['on_state']) or True
 
-        if hue is not None:
-            properties['hue'] = int(hue)
-        if brightness is not None:
-            properties['bri'] = int((float(brightness) / 100) * 255)
-        if saturation is not None:
-            properties['sat'] = int((float(saturation) / 100) * 255)
+        properties = {'on': on_off}
+
+        if on_off is True:
+            hue = hue_properties['hue']
+            saturation = hue_properties['saturation']
+            brightness = hue_properties['brightness']
+            if hue is not None:
+                properties['hue'] = hue
+            if brightness is not None:
+                properties['bri'] = int((float(brightness) / 100) * 255)
+            if saturation is not None:
+                properties['sat'] = int((float(saturation) / 100) * 255)
 
         request_body = json.dumps(properties)
         requests.put(url, request_body)

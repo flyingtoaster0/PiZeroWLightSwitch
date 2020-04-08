@@ -16,7 +16,7 @@ with open("config.yml", 'r') as ymlfile:
 
 multi_platform_config = []
 with open("multi_platform_config.yml", 'r') as ymlfile:
-    multi_platform_config_yml = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+    multi_platform_config_yml = yaml.load(ymlfile, Loader=yaml.FullLoader)
     for key, value in multi_platform_config_yml.items():
         multi_platform_config.append(value)
 
