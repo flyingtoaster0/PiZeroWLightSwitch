@@ -2,13 +2,13 @@
 
 ## Description
 
-This project is a *very* light implementation of the **Phillips Hue** and **Nanoleaf** REST APIs in Python, coupled with a menu system.
+This is the software portion of an ongoing project to build a handheld device used to control **Philips Hue** and **Nanoleaf** lights through their publicly available APIs.
 
 The project is designed to be run on [this 128 * 32 display from Adafruit](https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/overview).
 
-`MainLoop` is controlled by a PyGame loop.
+Check out the project page on [Hackaday](https://hackaday.io/project/170825-raspberry-pi-huenanoleaf-light-swtich)
 
-## Gettings Started 
+## Getting Started 
 
 Run `python3 PiSwitch.py` to run the application.
 
@@ -75,6 +75,10 @@ Acquiring the `hue_username` and `nanoleaf_auth_token` requires physical interac
 [Nanoleaf API Docs](https://documenter.getpostman.com/view/1559645/RW1gEcCH?version=latest)
 
 ## Quick Documentation
+
+### Main Loop
+
+This project is primarily powered by a PyGame loop (`MainLoop`) that handles menus, input, and rendering.
 
 ### Menus
 A simple menu system is included. The `Menu` class contains methods for handling displaying lines of text on the screen, as well as handling input.
