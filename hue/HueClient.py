@@ -24,14 +24,14 @@ class HueClient:
         group_id = hue_properties['group_id']
         url = self.set_group_state_url + '/' + group_id + '/action'
 
-        on_off = bool(hue_properties['on_state']) or True
+        on_off = hue_properties.get('on_state', False)
 
         properties = {'on': on_off}
 
         if on_off is True:
-            hue = hue_properties['hue']
-            saturation = hue_properties['saturation']
-            brightness = hue_properties['brightness']
+            hue = hue_properties.get('hue', None)
+            saturation = hue_properties.get('saturation', None)
+            brightness = hue_properties.get('brightness', None)
             if hue is not None:
                 properties['hue'] = hue
             if brightness is not None:

@@ -28,14 +28,14 @@ class NanoleafClient:
         state_url = self.base_url + '/state'
         effects_url = self.base_url + '/effects'
 
-        on_off = nanoleaf_properties['on_state'] or True
+        on_off = nanoleaf_properties.get('on_state', False)
 
         state_properties = {'on': {'value': on_off}}
         effect_properties = None
 
         if on_off is True:
-            brightness = nanoleaf_properties['brightness']
-            effect = nanoleaf_properties['effect']
+            brightness = nanoleaf_properties.get('brightness', None)
+            effect = nanoleaf_properties.get('effect', None)
             if brightness is not None:
                 brightness_int = int((float(brightness) / 100) * 255)
                 state_properties['brightness'] = {'brightness': self.wrap_value(brightness_int)}
