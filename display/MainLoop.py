@@ -5,8 +5,6 @@ from input.InputButton import InputButton
 
 class MainLoop:
 
-    # TODO: Pass in a repo that can access the data.
-    # TODO: Pass in a class that understands how to perform actions.
     def __init__(self, app_input, renderer, menu_manager, breadcrumb_printer):
         self.renderer = renderer
         self.app_input = app_input
@@ -28,10 +26,6 @@ class MainLoop:
                 done = True  # Flag that we are done so we exit this loop
 
             self.menu_manager.handle_input(button)
-
-
-## TODO: also add GPIO but through another class so that it's not imported directly here.
-## todo: use whichever renderer is needed.
 
             lines_to_render = self.menu_manager.get_renderable_text()
 
