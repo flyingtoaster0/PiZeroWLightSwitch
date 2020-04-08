@@ -4,10 +4,11 @@
 
 This is the software portion of an ongoing project to build a handheld device used to control **Philips Hue** and **Nanoleaf** lights through their publicly available APIs.
 
-The project is designed to be run on [this 128 * 32 display from Adafruit](https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/overview).
+The project is designed to be run on this tiny [128x32 display](https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/overview)  from Adafruit.
 
-Check out the project page on [Hackaday](https://hackaday.io/project/170825-raspberry-pi-huenanoleaf-light-swtich)
+Check out the project page on [Hackaday](https://hackaday.io/project/170825-raspberry-pi-huenanoleaf-light-switch)
 
+![Pi Switch](readme_assets/pi_switch_1.gif "Logo Title Text 1")
 ## Getting Started 
 
 Run `python3 PiSwitch.py` to run the application.
@@ -19,7 +20,7 @@ A few libraries are needed in order to run the project.
 `pip3 install json PyYaml pygame==1.9.6`
 
 #### Raspberry Pi Only
-To run the project on a Raspberry Pi using GPIO and the 128 * 32 display, the additional libraries are needed.
+To run the project on a Raspberry Pi using GPIO and the 128x32 display, the additional libraries are needed.
 
 `pip3 install RPi.GPIO adafruit-circuitpython-ssd1306`
 
