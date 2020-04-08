@@ -10,6 +10,8 @@ The project is designed to be run on [this 128 * 32 display from Adafruit](https
 
 ## Gettings Started 
 
+Run `python3 PiSwitch.py` to run the application.
+
 ### Dependencies
 
 A few libraries are needed in order to run the project.
