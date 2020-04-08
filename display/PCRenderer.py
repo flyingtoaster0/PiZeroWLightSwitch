@@ -1,8 +1,5 @@
 import pygame
 
-# TODO: Pass title and message here
-# TODO: idea: breadcrumbs!
-# TODO: when rendering, maybe just pass this guy 4 lines of something. like a list of 4 strings.
 class PCRenderer:
 
     def __init__(self):
