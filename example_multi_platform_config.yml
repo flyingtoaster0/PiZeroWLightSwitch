@@ -1,12 +1,12 @@
 config_name:
   name: "Human Readable Title"
   hue_properties:
-    on_state: true
-    group_name: "Den"
-    group_id: "7"
-    brightness: 60
-    hue: 8258
-    saturation: 75
+    - on_state: true
+      group_name: "Den"
+      group_id: "7"
+      brightness: 60
+      hue: 8258
+      saturation: 75
   nanoleaf_properties:
     effect: "Nanoleaf Effect Name"
     brightness: 65

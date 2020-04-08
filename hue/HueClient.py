@@ -20,24 +20,29 @@ class HueClient:
         request_body = json.dumps({'on': is_on})
         requests.put(url, request_body)
 
-    def set_group_properties(self, hue_properties):
-        group_id = hue_properties['group_id']
-        url = self.set_group_state_url + '/' + group_id + '/action'
+    def set_group_properties(self, hue_properties_list):
+        request_tuple_list = []
+        for hue_properties in hue_properties_list:
+            group_id = hue_properties['group_id']
+            url = self.set_group_state_url + '/' + group_id + '/action'
 
-        on_off = hue_properties.get('on_state', False)
+            on_off = hue_properties.get('on_state', False)
 
-        properties = {'on': on_off}
+            properties = {'on': on_off}
 
-        if on_off is True:
-            hue = hue_properties.get('hue', None)
-            saturation = hue_properties.get('saturation', None)
-            brightness = hue_properties.get('brightness', None)
-            if hue is not None:
-                properties['hue'] = hue
-            if brightness is not None:
-                properties['bri'] = int((float(brightness) / 100) * 255)
-            if saturation is not None:
-                properties['sat'] = int((float(saturation) / 100) * 255)
+            if on_off is True:
+                hue = hue_properties.get('hue', None)
+                saturation = hue_properties.get('saturation', None)
+                brightness = hue_properties.get('brightness', None)
+                if hue is not None:
+                    properties['hue'] = hue
+                if brightness is not None:
+                    properties['bri'] = int((float(brightness) / 100) * 255)
+                if saturation is not None:
+                    properties['sat'] = int((float(saturation) / 100) * 255)
 
-        request_body = json.dumps(properties)
-        requests.put(url, request_body)
+            request_body = json.dumps(properties)
+            request_tuple_list.append((url, request_body),)
+
+        for url, request_body in request_tuple_list:
+            requests.put(url, request_body)
