@@ -1,1 +1,1 @@
-pip3 install json requests PyYaml pygame=1.9.6
+pip3 install json PyYaml pygame==1.9.6
