@@ -42,7 +42,7 @@ class NestedMenu(Menu):
         return selected_menu.get_title_text()
 
     def get_renderable_text(self, menu_config, breadcrumb_printer):
-        return [self.get_line_1(menu_config, breadcrumb_printer), self.get_line_2(menu_config)]
+        return [self.get_line_1(menu_config, breadcrumb_printer), self.get_line_2(menu_config), self.get_line_3(menu_config)]
 
     def confirm(self, menu_stack, menu_config):
         selected_id = self.child_ids[self.selection]

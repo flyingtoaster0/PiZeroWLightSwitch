@@ -45,22 +45,22 @@ class HueRoomToggle(Menu):
                 self.selection = None
                 self.confirm_index = 0
 
-    def get_line_1_text(self, menu_config, breadcrumb_printer):
+    def get_line_2_text(self, menu_config):
         return self.hue_groups[self.selection_index]['name']
 
-    def get_line_2_text(self, menu_config):
+    def get_line_3_text(self, menu_config):
         if self.selection is not None:
             return 'ON OFF'
 
-    def get_line_2_overlay(self, menu_config):
+    def get_line_3_overlay(self, menu_config):
         if self.selection is not None:
             if self.confirm_index == 0:
                 return '__'
             else:
                 return '   ___'
 
-    def get_renderable_text(self, menu_config):
-        return [self.get_line_1(menu_config), self.get_line_2(menu_config)]
+    def get_renderable_text(self, menu_config, breadcrumb_printer):
+        return [self.get_line_1(menu_config, breadcrumb_printer), self.get_line_2(menu_config), self.get_line_3(menu_config)]
 
     def select_down(self):
         if self.selection is None:
