@@ -22,22 +22,18 @@ class MainLoop:
         done = False
 
         while not done:
-# TODO!!: remove breadcrumbs because there's not enough space on the real display.
             button = self.app_input.get_button()
 
             if button == InputButton.quit:
                 done = True  # Flag that we are done so we exit this loop
 
             self.menu_manager.handle_input(button)
-            # if button == InputButton.left:
-            #     print("ayy")
 
 
 ## TODO: also add GPIO but through another class so that it's not imported directly here.
 ## todo: use whichever renderer is needed.
 
-            breadcrumb_str = self.breadcrumb_printer.get_breadcrumb_str(self.menu_manager.menu_stack)
-            lines_to_render = [(breadcrumb_str, None)] + self.menu_manager.get_renderable_text()
+            lines_to_render = self.menu_manager.get_renderable_text()
 
             self.renderer.render(lines_to_render)
 

@@ -45,7 +45,7 @@ class HueRoomToggle(Menu):
                 self.selection = None
                 self.confirm_index = 0
 
-    def get_line_1_text(self, menu_config):
+    def get_line_1_text(self, menu_config, breadcrumb_printer):
         return self.hue_groups[self.selection_index]['name']
 
     def get_line_2_text(self, menu_config):

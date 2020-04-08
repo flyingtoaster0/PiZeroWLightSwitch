@@ -62,8 +62,8 @@ root_menu = menu_config['menu1']
 menu_stack = [root_menu]
 
 ## todo menu config in the manager constructor
-menu_manager = MenuManager(menu_stack, menu_config)
-breadcrumb_printer = BreadcrumbPrinter()
+breadcrumb_printer = BreadcrumbPrinter(menu_stack)
+menu_manager = MenuManager(menu_stack, menu_config, breadcrumb_printer)
 display = MainLoop(app_input, renderer, menu_manager, breadcrumb_printer)
 display.run()
 

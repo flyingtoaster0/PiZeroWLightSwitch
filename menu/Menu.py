@@ -9,14 +9,14 @@ class Menu:
     def get_title_text(self):
         return self.title
 
-    def get_line_1(self, menu_config):
-        return self.get_line_1_text(menu_config), self.get_line_1_overlay(menu_config)
+    def get_line_1(self, menu_config, breadcrumb_printer):
+        return self.get_line_1_text(menu_config, breadcrumb_printer), self.get_line_1_overlay(menu_config)
 
     def get_line_2(self, menu_config):
         return self.get_line_2_text(menu_config), self.get_line_2_overlay(menu_config)
 
-    def get_line_1_text(self, menu_config):
-        return None
+    def get_line_1_text(self, menu_config, breadcrumb_printer):
+        return self.get_title_text()
 
     def get_line_2_text(self, menu_config):
         return None
@@ -27,8 +27,8 @@ class Menu:
     def get_line_2_overlay(self, menu_config):
         return None
 
-    def get_renderable_text(self, menu_config):
-        return []
+    def get_renderable_text(self, menu_config, breadcrumb_printer):
+        return [self.get_line_1(menu_config, breadcrumb_printer), self.get_line_2(menu_config)]
 
     def handle_input(self, input_button, menu_stack, menu_config):
         pass

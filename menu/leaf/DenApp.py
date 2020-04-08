@@ -14,11 +14,8 @@ class DenApp(Menu):
         self.multi_platform_config = repository['multi_platform_config']
         self.selection_index = 0
 
-    def get_line_1_text(self, menu_config):
+    def get_line_2_text(self, menu_config):
         return self.multi_platform_config[self.selection_index]['name']
-
-    def get_renderable_text(self, menu_config):
-        return [self.get_line_1(menu_config)]
 
     def handle_input(self, input_button, menu_stack, menu_config):
         if input_button == InputButton.up:
