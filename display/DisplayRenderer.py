@@ -12,3 +12,6 @@ class DisplayRenderer:
         if self.sub_renderer is None:
             return
         self.sub_renderer.render(text_list)
+
+    def clear(self):
+        self.sub_renderer.clear()

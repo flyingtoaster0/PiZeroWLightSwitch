@@ -1,3 +1,6 @@
+from input.InputButton import InputButton
+
+
 class MainLoop:
 
     def __init__(self, app_input, renderer, menu_manager, breadcrumb_printer):
@@ -17,6 +20,9 @@ class MainLoop:
         self.app_input.begin_input()
 
     def handle_input(self, input_button):
-        self.menu_manager.handle_input(input_button)
-        lines_to_render = self.menu_manager.get_renderable_text()
-        self.renderer.render(lines_to_render)
+        if input_button == InputButton.quit:
+            self.renderer.clear()
+        else:
+            self.menu_manager.handle_input(input_button)
+            lines_to_render = self.menu_manager.get_renderable_text()
+            self.renderer.render(lines_to_render)
