@@ -30,7 +30,8 @@ class GPIOInput:
     def begin_input(self):
         GPIO.setmode(GPIO.BCM)
         for input_pin, button in self.gpio_button_map.items():
-            GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN, callback=self.gpio_callback)
+            GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+            GPIO.add_event_detect(input_pin, GPIO.RISING, callback=self.gpio_callback)
         try:
             message = input('\nPress any key to exit.\n')
         finally:
