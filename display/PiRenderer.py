@@ -1,10 +1,8 @@
-import pygame
-
-import os
-from board import SCL, SDA
+import adafruit_ssd1306
 import busio
 from PIL import Image, ImageDraw, ImageFont
-import adafruit_ssd1306
+from board import SCL, SDA
+
 
 class PiRenderer:
 
@@ -49,8 +47,7 @@ class PiRenderer:
         # font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 9)
 
     def init_renderer(self):
-        os.putenv('DISPLAY', ':0.0')
-        pygame.init()
+        pass
 
     def render(self, text_list):
         self.draw.rectangle((0, 0, self.width, self.height), outline=0, fill=0)
