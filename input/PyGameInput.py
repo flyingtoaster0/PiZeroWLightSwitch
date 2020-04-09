@@ -26,11 +26,12 @@ class PyGameInput:
             button = self.get_button()
 
             if button is not None:
-                if button == InputButton.quit:
-                    done = True  # Flag that we are done so we exit this loop
 
                 if self.button_callback is not None:
                     self.button_callback(button)
+
+                if button == InputButton.quit:
+                    done = True  # Flag that we are done so we exit this loop
 
 
             clock.tick(60)

@@ -37,3 +37,4 @@ class PyGameRenderer:
 
     def clear(self):
         self.screen.fill(self.BLACK)
+        pygame.display.flip()
