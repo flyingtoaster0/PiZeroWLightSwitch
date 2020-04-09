@@ -19,11 +19,19 @@ class PiSwitch:
         with open("config.yml", 'r') as ymlfile:
             config = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 
+        # TODO: Abstract out these two YAML loads into a class that checks a folder or something.
+        # Presumably, you could have any number of these.
         multi_platform_config = []
         with open("multi_platform_config.yml", 'r') as ymlfile:
             multi_platform_config_yml = yaml.load(ymlfile, Loader=yaml.FullLoader)
             for key, value in multi_platform_config_yml.items():
                 multi_platform_config.append(value)
+
+        bedroom_config = []
+        with open("bedroom_config.yml", 'r') as ymlfile:
+            bedroom_config_yml = yaml.load(ymlfile, Loader=yaml.FullLoader)
+            for key, value in bedroom_config_yml.items():
+                bedroom_config.append(value)
 
         hue_username = config['hue']['username']
         nanoleaf_auth_token = config['nanoleaf']['auth_token']
@@ -46,7 +54,8 @@ class PiSwitch:
             'hue_client': hue_client,
             'hue_groups': hue_groups,
             'nanoleaf_client': nanoleaf_client,
-            'multi_platform_config': multi_platform_config
+            'multi_platform_config': multi_platform_config,
+            'bedroom_config': bedroom_config,
         }
 
         app_input = AppInput([self.sub_input])

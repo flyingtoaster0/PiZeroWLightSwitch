@@ -1,0 +1,31 @@
+both_on:
+  name: "Both On"
+  hue_properties:
+    - on_state: true
+      group_id: "id"
+    - on_state: true
+      group_id: "id"
+
+bedroom_only:
+  name: "Bedroom Only"
+  hue_properties:
+    - on_state: true
+      group_id: "id"
+    - on_state: false
+      group_id: "id"
+
+Closet Only:
+  name: "Closet Only"
+  hue_properties:
+    - on_state: false
+      group_id: "id"
+    - on_state: true
+      group_id: "id"
+
+both_off:
+  name: "Both Off"
+  hue_properties:
+    - on_state: false
+      group_id: "id"
+    - on_state: false
+      group_id: "id"

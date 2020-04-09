@@ -4,3 +4,4 @@ venv37
 *.pyc
 config.yml
 multi_platform_config.yml
+bedroom_config.yml
