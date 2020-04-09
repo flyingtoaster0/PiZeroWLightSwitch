@@ -66,3 +66,5 @@ class PiRenderer:
 
     def clear(self):
         self.draw.rectangle((0, 0, self.width, self.height), outline=0, fill=0)
+        self.disp.image(self.image)
+        self.disp.show()
