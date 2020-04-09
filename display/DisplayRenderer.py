@@ -10,5 +10,5 @@ class DisplayRenderer:
 
     def render(self, text_list):
         if self.sub_renderer is None:
-            pass
+            return
         self.sub_renderer.render(text_list)
