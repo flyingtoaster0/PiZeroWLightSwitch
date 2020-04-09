@@ -27,8 +27,8 @@ class GPIOInput:
             4: InputButton.back,
         }
 
+    def begin_input(self):
         GPIO.setmode(GPIO.BCM)
-
         for input_pin, button in self.gpio_button_map.items():
             GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
