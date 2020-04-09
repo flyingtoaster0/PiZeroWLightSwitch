@@ -34,3 +34,6 @@ class PyGameRenderer:
         for font in font_list:
             if font.startswith('couriernew'):
                 return font
+
+    def clear(self):
+        self.screen.fill(self.BLACK)

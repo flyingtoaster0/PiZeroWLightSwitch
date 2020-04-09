@@ -36,6 +36,7 @@ class GPIOInput:
             input('\nPress any key to exit.\n')
         finally:
             GPIO.cleanup()
+            self.button_callback(InputButton.quit)
 
     def get_button(self):
 
