@@ -16,7 +16,6 @@ class PyGameInput:
     }
 
     def __init__(self):
-
         self.button_callback = None
 
     def begin_input(self):

@@ -7,6 +7,8 @@ from input.InputButton import InputButton
 class GPIOInput:
 
     def __init__(self):
+        self.button_callback = None
+
         self.button_state_map = {
             InputButton.up: False,
             InputButton.down: False,
@@ -50,3 +52,5 @@ class GPIOInput:
 
         return None
 
+    def set_callback(self, button_callback):
+        self.button_callback = button_callback
