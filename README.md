@@ -4,7 +4,7 @@
 
 This is the software portion of an ongoing project to build a handheld device used to control **Philips Hue** and **Nanoleaf** lights through their publicly available APIs.
 
-The project is designed to be run on this tiny [128x32 display](https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/overview)  from Adafruit.
+The project is designed to be run on this tiny [128x32 ssd1306 display](https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/overview)  from Adafruit.
 
 Check out the project page on [Hackaday](https://hackaday.io/project/170825-raspberry-pi-huenanoleaf-light-switch)
 
@@ -19,10 +19,19 @@ Run `python3 PiDriver.py` to run on a Raspberry Pi with the display and GPIO.
 
 A few libraries are needed in order to run the project.
 
-`pip3 install json PyYaml pygame==1.9.6`
+`pip3 install json PyYaml`
+
+#### Desktop Only
+When running on a desktop, input and rendering is done by PyGame.
+
+`pip3 install pygame==1.9.6`
 
 #### Raspberry Pi Only
-To run the project on a Raspberry Pi using GPIO and the 128x32 display, the additional libraries are needed.
+To run the project on a Raspberry Pi using GPIO and the 128x32 ssd1306 display, the additional libraries are needed.
+
+`RPi.GPIO` takes care of reading the state of the GPIO pins.
+
+`adafruit-circuitpython-ssd1306` is a nice library from Adafruit that helps easily write to the ssd1306 display.
 
 `pip3 install RPi.GPIO adafruit-circuitpython-ssd1306`
 
@@ -79,10 +88,6 @@ Acquiring the `hue_username` and `nanoleaf_auth_token` requires physical interac
 
 ## Quick Documentation
 
-### Main Loop
-
-This project is primarily powered by a PyGame loop (`MainLoop`) that handles menus, input, and rendering.
-
 ### Menus
 A simple menu system is included. The `Menu` class contains methods for handling displaying lines of text on the screen, as well as handling input.
 
@@ -107,7 +112,7 @@ renderer = DisplayRenderer(sub_renderer)
 
 ### Input
 
-Specific input implementations have also been abstracted from `MainLoop`.
+Specific input implementations have also been abstracted.
 
 The different logical buttons are defined in `InputButton`.
 
