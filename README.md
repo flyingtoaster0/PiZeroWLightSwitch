@@ -11,7 +11,9 @@ Check out the project page on [Hackaday](https://hackaday.io/project/170825-rasp
 ![Pi Switch](readme_assets/pi_switch_1.gif "Logo Title Text 1")
 ## Getting Started 
 
-Run `python3 PiSwitch.py` to run the application.
+Run `python3 PyGameDriver.py` to run the application with a PyGame window and keyboard input.
+
+Run `python3 PiDriver.py` to run on a Raspberry Pi with the display and GPIO.
 
 ### Dependencies
 
