@@ -30,7 +30,11 @@ class GPIOInput:
     def begin_input(self):
         GPIO.setmode(GPIO.BCM)
         for input_pin, button in self.gpio_button_map.items():
-            GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+            GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN, callback=self.gpio_callback)
+        try:
+            message = input('\nPress any key to exit.\n')
+        finally:
+            GPIO.cleanup()
 
     def get_button(self):
 
@@ -54,3 +58,18 @@ class GPIOInput:
 
     def set_callback(self, button_callback):
         self.button_callback = button_callback
+
+    def gpio_callback(self, input_pin):
+        button = self.gpio_button_map[input_pin]
+
+        previous_state = self.button_state_map[button]
+
+        current_button_state = GPIO.input(input_pin) == GPIO.HIGH
+
+        self.button_state_map[button] = current_button_state
+
+        state = self.button_state_map[button]
+
+        if previous_state is False and state is True:
+            print("gpio " + str(input_pin))
+            self.button_callback(button)
