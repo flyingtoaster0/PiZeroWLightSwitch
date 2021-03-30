@@ -10,9 +10,10 @@ import yaml
 
 
 class PiSwitch:
-    def __init__(self, sub_renderer, sub_input):
+    def __init__(self, sub_renderer, sub_input, desk_control):
         self.sub_renderer = sub_renderer
         self.sub_input = sub_input
+        self.desk_control = desk_control
 
     def begin(self):
 
@@ -39,7 +40,7 @@ class PiSwitch:
         hue_url = 'http://' + config['hue']['ip']
         nanoleaf_url = 'http://' + config['nanoleaf']['ip'] + ':16021'
 
-
+        # TODO: Init this async or something and fail properly. Have a failure "app" or something.
         hue_client = HueClient(hue_url, hue_username)
         nanoleaf_client = NanoleafClient(nanoleaf_url, nanoleaf_auth_token)
 
@@ -56,6 +57,7 @@ class PiSwitch:
             'nanoleaf_client': nanoleaf_client,
             'multi_platform_config': multi_platform_config,
             'bedroom_config': bedroom_config,
+            'desk_control': self.desk_control
         }
 
         app_input = AppInput([self.sub_input])
@@ -69,3 +71,6 @@ class PiSwitch:
         menu_manager = MenuManager(menu_stack, menu_config, breadcrumb_printer)
         display = MainLoop(app_input, renderer, menu_manager, breadcrumb_printer)
         display.run()
+
+    def init_repository(self):
+        pass
