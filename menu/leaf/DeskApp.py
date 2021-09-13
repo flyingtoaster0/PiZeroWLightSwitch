@@ -31,7 +31,7 @@ class DeskApp(Menu):
     def handle_input(self, input_button, menu_stack, menu_config):
         if input_button == InputButton.up:
             self.desk_control.go_up()
-            time.sleep(9.25)
+            time.sleep(8.8)
             self.desk_control.go_up(False)
         else:
             if input_button == InputButton.down:

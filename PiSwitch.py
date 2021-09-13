@@ -57,7 +57,9 @@ class PiSwitch:
             'nanoleaf_client': nanoleaf_client,
             'multi_platform_config': multi_platform_config,
             'bedroom_config': bedroom_config,
-            'desk_control': self.desk_control
+            'desk_control': self.desk_control,
+            'hue_ip': config['hue']['ip'],
+            'nanolead_ip': config['nanoleaf']['ip']
         }
 
         app_input = AppInput([self.sub_input])

@@ -15,9 +15,15 @@ class HueIpApp(Menu):
         self.hue_client = repository['hue_client']
         self.nanoleaf_client = repository['nanoleaf_client']
         self.multi_platform_config = repository['multi_platform_config']
-        self.selection_index = 0
-        self.ip = ''
-        self.overlay = '_'
+        self.ip = repository['hue_ip'][:-1] if repository['hue_ip'] else ''
+
+        last_ip_character = repository['hue_ip'][len(repository['hue_ip']) - 1]
+        self.selection_index = self.get_initial_selection_index(last_ip_character)
+
+        self.overlay = ''
+        for n in range(len(self.ip)):
+            self.overlay = self.overlay + ' '
+        self.overlay = self.overlay + "_"
 
     def get_line_2_text(self, menu_config):
         return self.ip + self.OPTIONS[self.selection_index]
@@ -61,7 +67,17 @@ class HueIpApp(Menu):
     def confirm(self, menu_stack):
         self.ip = self.ip + self.OPTIONS[self.selection_index]
         ConfigWriter().write_hue_ip(self.ip)
-        self.selection_index = 0
-        self.ip = ''
-        self.overlay = '_'
+
+        # TODO: This would be better in on_enter, but that's on implemented yet.
+        last_ip_character = self.ip[len(self.ip) - 1]
+        self.selection_index = self.get_initial_selection_index(last_ip_character)
+        self.ip = self.ip[:-1]
+
         menu_stack.pop()
+
+    def get_initial_selection_index(self, last_ip_character):
+        for option in self.OPTIONS:
+            if option == last_ip_character:
+                return self.OPTIONS.index(option)
+
+        return 0
